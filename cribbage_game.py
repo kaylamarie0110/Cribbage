@@ -139,7 +139,7 @@ def print_card_list(card_list):
 
 class Hand(Deck):
 	#Represents a hand of playing cards
-	#Inherents from Deck, so we can use pop_card and add_card for Hands
+	#Inherits from Deck, so we can use pop_card and add_card for Hands
 
 	def __init__(self, label=''):
 		self.cards = []
@@ -509,13 +509,16 @@ def main():
 			for card in hand_player.cards:
 				print card
 			hand_player.add_card(flip_card)
-			crib.add_card(flip_card)
 			score_player += hand_player.get_score()
-			score_player += crib.get_score()
 			
 			print "\nPlayer's points (hand): ", hand_player.get_score()
-			print "Player's points (crib): ", crib.get_score()
-			print "Player's total score: ", score_player
+			print "\nPlayer's Crib"
+			for card in crib.cards:
+				print card
+			crib.add_card(flip_card)
+			score_player += crib.get_score()
+			print "\nPlayer's points (crib): ", crib.get_score()
+			print "\nPlayer's total score: ", score_player
 			if score_player >= num_points_to_win and score_computer < num_points_to_win:
 				print 'PLAYER WINS!'
 
@@ -553,17 +556,19 @@ def main():
 			print "Player's total score: ", score_player
 			if score_player >= num_points_to_win:
 				print 'PLAYER WINS!'
-			print "\n"
-			print "Computer's Hand: "
+			print "\nComputer's Hand: "
 			for card in hand_computer.cards:
 				print card
 			hand_computer.add_card(flip_card)
-			crib.add_card(flip_card)
 			score_computer += hand_computer.get_score()
-			score_computer += crib.get_score()
 			print "\nComputer's points (hand): ", hand_computer.get_score()
-			print "Computer's points (crib): ", crib.get_score()
-			print "Computer's total score: ", score_computer
+			print "\nComputer's Crib: "
+			for card in crib.cards:
+				print card
+			crib.add_card(flip_card)
+			score_computer += crib.get_score()
+			print "\nComputer's points (crib): ", crib.get_score()
+			print "\nComputer's total score: ", score_computer
 			if score_computer >= num_points_to_win and score_player < num_points_to_win:
 				print 'COMPUTER WINS!'
 			whose_deal = 1
