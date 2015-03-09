@@ -461,7 +461,7 @@ def main():
 	# for card in crib.cards:
 	# 	print card
 
-	num_points_to_win = 25
+	num_points_to_win = 121
 
 	while score_player < num_points_to_win and score_computer < num_points_to_win:
 		deck = Deck()
